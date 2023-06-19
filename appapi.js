@@ -1,8 +1,6 @@
-var express = require("express");
+const express = require("express");
 let server = express();
 server.use(express.json());
-server.use(mathrouter.router);
-server.use(userrouter.router);
 
 server.listen(3000, (errors) => {
 	if (errors) {
