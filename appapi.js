@@ -2,7 +2,7 @@ const express = require("express");
 let server = express();
 server.use(express.json());
 
-server.listen(3000, (errors) => {
+server.listen(8080, (errors) => {
 	if (errors) {
 		console.log ("Could not start the server. Error: " + errors)
 	} else {
