@@ -11,7 +11,7 @@ server.listen(8080, (errors) => {
 });
 
 server.get("/", (req, res) => {
- res.send(["Hello! This is version 0.26"]);
+ res.send(["This is a Third Party Data Processing API - Reservation API"]);
 });
 
 server.get("/api", (req, res, next) => {

@@ -49,7 +49,7 @@ jobs:
         repo_name="$(basename $GITHUB_REPOSITORY)"
         commit_name="${{ github.event.head_commit.message }}"
         error_failure="${{ job.status == 'failure' }}"
-        curl -X POST -H "Content-Type: application/json" -d '{"EventName":"","OccurredAt":"","value1":"<h1>DEVOPS DEPLOYMENT: '"$repo_name"' FAILURE</h1>","value2":"<h2>'"$commit_name"'</h2>","value3":"ERROR: '"$error_failure"'"}' "https://maker.ifttt.com/trigger/devopscicd/with/key/${{ secrets.IFTTT_KEY }}"
+        curl -X POST -H "Content-Type: application/json" -d '{"EventName":"","OccurredAt":"","value1":"<h1>DEVOPS DEPLOYMENT REPOSITORY: '"$repo_name"' FAILURE</h1>","value2":"<h2>Git Commit - '"$commit_name"'</h2>","value3":"ERROR: '"$error_failure"'"}' "https://maker.ifttt.com/trigger/devopscicd/with/key/${{ secrets.IFTTT_KEY }}"
 
     - name: Final Step
       run: |
@@ -57,4 +57,4 @@ jobs:
         repo_name="$(basename $GITHUB_REPOSITORY)"
         commit_name="${{ github.event.head_commit.message }}"
         error_failure="${{ job.status == 'failure' }}"
-        curl -X POST -H "Content-Type: application/json" -d '{"EventName":"","OccurredAt":"","value1":"<h1>DEVOPS DEPLOYMENT: '"$repo_name"'</h1>","value2":"<h2>'"$commit_name"'</h2>","value3":"ERROR: '"$error_failure"'"}' "https://maker.ifttt.com/trigger/devopscicd/with/key/${{ secrets.IFTTT_KEY }}"
+        curl -X POST -H "Content-Type: application/json" -d '{"EventName":"","OccurredAt":"","value1":"<h1>DEVOPS DEPLOYMENT REPOSITORY: '"$repo_name"'</h1>","value2":"<h2>Git Commit - '"$commit_name"'</h2>","value3":"ERROR: '"$error_failure"'"}' "https://maker.ifttt.com/trigger/devopscicd/with/key/${{ secrets.IFTTT_KEY }}"

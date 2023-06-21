@@ -1,4 +1,4 @@
-name: cloudrun-deploy
+name: Build and Deploy to Cloud Run
 
 on:
   push:
