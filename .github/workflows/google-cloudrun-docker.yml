@@ -40,3 +40,15 @@ jobs:
         --platform managed \
         --allow-unauthenticated \
         --memory 256M
+
+    - name: Handle Error
+      if: ${{ failure() }}
+      run: echo "Error occurred. Performing specific task."
+
+    - name: Final Step
+      run: |
+        echo "Final step"
+        repo_name="$(basename $GITHUB_REPOSITORY)"
+        commit_name="${{ github.event.head_commit.message }}"
+        error_failure="${{ job.status == 'failure' }}"
+        curl -X POST -H "Content-Type: application/json" -d '{"EventName":"DEVOPS DEPLOYMENT: '"$repo_name"'","OccurredAt":"","value1":"<h1>'"$commit_name"'</h1>","value2":"<h3>ERROR</h3>","value3":"'"$error_failure"'"}' "https://maker.ifttt.com/trigger/devopscicd/with/key/${{ secrets.IFTTT_KEY }}"
