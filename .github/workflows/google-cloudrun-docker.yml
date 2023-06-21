@@ -51,4 +51,4 @@ jobs:
         repo_name="$(basename $GITHUB_REPOSITORY)"
         commit_name="${{ github.event.head_commit.message }}"
         error_failure="${{ job.status == 'failure' }}"
-        curl -X POST -H "Content-Type: application/json" -d '{"EventName":"DEVOPS DEPLOYMENT: '"$repo_name"'","OccurredAt":"","value1":"<h1>'"$commit_name"'</h1>","value2":"<h3>ERROR</h3>","value3":"'"$error_failure"'"}' "https://maker.ifttt.com/trigger/devopscicd/with/key/${{ secrets.IFTTT_KEY }}"
+        curl -X POST -H "Content-Type: application/json" -d '{"EventName":" ","OccurredAt":"","value1":"<h1>DEVOPS DEPLOYMENT: '"$repo_name"' </h1>","value2":<h2>'"$commit_name"'</h2>,"value3":"ERROR : '"$error_failure"'"}' "https://maker.ifttt.com/trigger/devopscicd/with/key/${{ secrets.IFTTT_KEY }}"
