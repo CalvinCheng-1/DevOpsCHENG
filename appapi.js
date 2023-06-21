@@ -12,11 +12,7 @@ server.listen(8080, (errors) => {
 });
 
 server.get("/", (req, res) => {
-<<<<<<< HEAD
- res.send(["This is a Third Party Data Processing API - Reservation API"]);
-=======
   res.send(["Hello! This is API service for resource retrieve"]);
->>>>>>> v3update
 });
 
 server.get("/stall/inventory", (req, res, next) => {
